@@ -29,11 +29,26 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    'nuxt-vite',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: ['@nuxtjs/apollo'],
 
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'http://localhost:4000',
+      },
+    },
+  },
+vite: {
+    optimizeDeps: {
+      exclude: [
+        'vue-cli-plugin-apollo'
+      ]
+    }
+  },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
 }
